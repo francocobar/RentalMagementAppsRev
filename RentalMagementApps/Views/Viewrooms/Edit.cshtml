@@ -1,0 +1,91 @@
+﻿@{
+    ViewData["Title"] = "Edit Kamar Kost";
+}
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">Edit Kamar Kost</h3>
+    </div>
+    <div id="content" class="panel-body">
+
+        <div id="loading" class="anic">Loading. . .</div>
+        <form action="/api/Rooms/@ViewData["id"]" method="PUT" style="display:none;">
+            <div class="form-group required">
+                <input type="hidden" name="kostID" value="">
+                <label for="RoomName">Nama Kamar</label>
+                <input type="text" class="form-control" name="roomName" placeholder="Nama Kamar">
+            </div>
+            <div class="form-group required">
+                <label for="RoomName">Ukuran Panjang Kamar</label>
+                <input type="number" class="form-control" name="roomLength" placeholder="Ukuran Panjang Kama">
+            </div>
+            <div class="form-group required">
+                <label for="RoomName">Ukuran Lebar Kamar</label>
+                <input type="number" class="form-control" name="roomWidth" placeholder="Ukuran Lebar Kamar">
+            </div>
+            <div class="form-group required">
+                <label for="RoomName">Biaya Sewa (Bulanan)</label>
+                <input type="number" class="form-control" name="monthlyFee" placeholder="Biaya Sewa">
+            </div>
+            <div>
+                <ul class="error_message"></ul>
+            </div>
+            <button id="btn_register" type="submit" data-form-type="api" class="submit-button btn btn-success">Simpan</button>
+            <a id="btn_back" href="" class="btn btn-default">Kembali</a>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+<script>
+
+
+    $(document).ready(function () {
+        function check($id) {
+            console.log($id);
+            $('#btn_back').attr('href', '/Viewrooms/List/' + $id);
+            $.ajax({
+                url: '/api/Kosts/' + $id,
+                method: 'GET',
+                dataType: 'JSON',
+                success: function (data) {
+                    $('#loading').hide();
+                    $('form').show(300);
+                },
+                error: function (data) {
+                    if (data.status == 404) {
+                        alert("Terjadi kesalahan!");
+                        window.location.href = '/Dashboard';
+                    }
+                }
+            });
+        }
+        $.ajax({
+            url: '/api/Rooms/@ViewData["id"]',
+            method: 'GET',
+            dataType: 'JSON',
+            success: function (data) {
+                $.each(data, function (key, item) {
+                    if ($('input[name="' + key + '"]').length)
+                        $('input[name="' + key + '"]').val(item);
+
+                });
+                if (data.kostID) {
+                    check(data.kostID);
+                }
+                else {
+                    alert("Terjadi kesalahan!");
+                    window.location.href = '/Dashboard';
+                }
+            },
+            error: function (data) {
+                if (data.status == 404) {
+                    alert("Terjadi kesalahan!");
+                    window.location.href = '/Dashboard';
+                }
+            }
+        });
+    });
+</script>
+}
+

@@ -1,0 +1,36 @@
+﻿@model IEnumerable<RentalManagementApps.Models.Room>
+@{
+    ViewData["Title"] = "Index";
+}
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">Daftar Kamar Kost.</h3>
+    </div>
+    <div id="content" class="panel-body">
+        <a href="/Sewakost" class="btn btn-default">Kembali</a>
+        <!-- Table -->
+        <table id="dataroom" class="table">
+            <thead>
+                <tr>
+                    <th>ID Kamar</th>
+                    <th>Nama Kamar</th>
+                    <th>Ukuran</th>
+                    <th>Harga</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody id="body_data">
+                @foreach (var item in Model)
+                {
+                <tr>
+                    <td>@item.ID</td>
+                    <td>@item.RoomName</td>
+                    <td>@item.RoomLength x @item.RoomWidth</td>
+                    <td>@item.MonthlyFee</td>
+                    <td><a href="/Viewrooms/Edit/@item.ID">Edit</a> | <a href="/api/Rooms/@item.ID" class="delete">Hapus</a></td>
+                </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

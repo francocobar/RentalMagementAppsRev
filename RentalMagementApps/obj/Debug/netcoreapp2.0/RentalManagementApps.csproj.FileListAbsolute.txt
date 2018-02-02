@@ -1,0 +1,11 @@
+C:\dotnet\RentalMagementApps\RentalMagementApps\bin\Debug\netcoreapp2.0\RentalManagementApps.deps.json
+C:\dotnet\RentalMagementApps\RentalMagementApps\bin\Debug\netcoreapp2.0\RentalManagementApps.runtimeconfig.json
+C:\dotnet\RentalMagementApps\RentalMagementApps\bin\Debug\netcoreapp2.0\RentalManagementApps.runtimeconfig.dev.json
+C:\dotnet\RentalMagementApps\RentalMagementApps\bin\Debug\netcoreapp2.0\RentalManagementApps.dll
+C:\dotnet\RentalMagementApps\RentalMagementApps\bin\Debug\netcoreapp2.0\RentalManagementApps.pdb
+C:\dotnet\RentalMagementApps\RentalMagementApps\obj\Debug\netcoreapp2.0\RentalManagementApps.csproj.CoreCompileInputs.cache
+C:\dotnet\RentalMagementApps\RentalMagementApps\obj\Debug\netcoreapp2.0\RentalManagementApps.AssemblyInfoInputs.cache
+C:\dotnet\RentalMagementApps\RentalMagementApps\obj\Debug\netcoreapp2.0\RentalManagementApps.AssemblyInfo.cs
+C:\dotnet\RentalMagementApps\RentalMagementApps\obj\Debug\netcoreapp2.0\RentalManagementApps.dll
+C:\dotnet\RentalMagementApps\RentalMagementApps\obj\Debug\netcoreapp2.0\RentalManagementApps.pdb
+C:\dotnet\RentalMagementApps\RentalMagementApps\obj\Debug\netcoreapp2.0\RentalManagementApps.csprojResolveAssemblyReference.cache

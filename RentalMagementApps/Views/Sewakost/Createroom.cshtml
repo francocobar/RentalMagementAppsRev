@@ -1,0 +1,35 @@
+﻿@{
+    ViewData["Title"] = "Tambah Kamar";
+}
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">Tambah Kamar Kost @ViewData["KostName"]</h3>
+    </div>
+    <div id="content" class="panel-body">
+        <form action="/api/Rooms" method="post">
+            <div class="form-group required">
+                <label for="RoomName">Nama Kamar</label>
+                <input type="hidden" value="@ViewData["KostId"]" name="KostID" />
+                <input type="text" class="form-control" name="RoomName" placeholder="Nama Kamar">
+            </div>
+            <div class="form-group required">
+                <label for="RoomName">Ukuran Panjang Kamar</label>
+                <input type="number" class="form-control" name="RoomLength" placeholder="Ukuran Panjang Kama">
+            </div>
+            <div class="form-group required">
+                <label for="RoomName">Ukuran Lebar Kamar</label>
+                <input type="number" class="form-control" name="RoomWidth" placeholder="Ukuran Lebar Kamar">
+            </div>
+            <div class="form-group required">
+                <label for="RoomName">Biaya Sewa (Bulanan)</label>
+                <input type="number" class="form-control" name="MonthlyFee" placeholder="Biaya Sewa">
+            </div>
+            <div>
+                <ul class="error_message"></ul>
+            </div>
+            <button id="btn_register" type="submit" data-form-type="api" class="submit-button btn btn-success">Tambahkan</button>
+            <a href="/Sewakost" class=" btn btn-default">Kembali</a>
+        </form>
+    </div>
+</div>

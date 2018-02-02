@@ -1,0 +1,68 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+}
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">Daftar Kost Anda.</h3>
+    </div>
+    <div id="content" class="panel-body">
+        <div><a href="/Sewakost/create" class="btn btn-success">Tambah Kost-an</a></div>
+        <div id="loading" class="anic">Loading. . .</div>
+        <!-- Table -->
+        <table id="datakost" class="table" style="display: none;">
+            <thead>
+                <tr>
+                    <th>ID Kost</th>
+                    <th>Nama Kost</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody id="body_data">
+                <tr id="no_data">
+                    <td colspan="3">
+                        Anda belum menambahkan kost
+                    </td>
+                </tr>
+                <tr id="temp_row" style="display: none;">
+                    <td class="kost_id"></td><td class="kost_name"></td>
+                    <td class=""><a href="" class="delete">Hapus</a> | <a href="" class="add">Tambah Kamar</a>  | <a href="" class="view">Lihat Kamar</a> </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+@section Scripts {
+<script>
+    $(document).ready(function () {
+        $.ajax({
+            url: 'api/kosts',
+            method: 'GET',
+            dataType: 'JSON',
+            success: function (data) {
+                $('#datakost').show();
+                if (data.length) {
+                    $.each(data, function () {
+                        $('#no_data').hide();
+                        $new_row = $('#temp_row').clone(true);
+                        $new_row.removeAttr('id');
+                        $new_row.show();
+                        $new_row.find('.kost_id').html(this.id);
+                        $new_row.find('.kost_name').html(this.kostName);
+                        $new_row.find('.delete').attr('href', '/api/kosts/' + this.id);
+                        $new_row.find('.add').attr('href', '/Sewakost/Createroom/' + this.id);
+                        $new_row.find('.view').attr('href', '/Viewrooms/List/' + this.id);
+                        $('#body_data').append($new_row);
+                    })
+                    
+                }
+
+                $('#loading').hide();
+            },
+        });
+    });
+</script>
+}
+

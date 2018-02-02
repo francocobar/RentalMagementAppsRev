@@ -1,0 +1,54 @@
+﻿@model RentalManagementApps.Models.User
+
+@{
+    ViewData["Title"] = "Index";
+}
+<div class="row">
+    <div class="col-md-6">
+        <div>Login</div>
+        <form asp-action="Login" enctype="application/x-www-form-urlencoded">
+            <div class="form-group required">
+                <label for="email_login">Alamat Email</label>
+                <input type="email" class="form-control" name="EmailAddress" id="email_login" placeholder="Alamat Email">
+            </div>
+            <div class="form-group required">
+                <label for="exampleInputPassword1">Password</label>
+                <input type="password" class="form-control" name="Password" id="password_login" placeholder="Password">
+            </div>
+            <div>
+                <ul class="error_message"></ul>
+            </div>
+            <button type="submit" class="submit-button btn btn-default">Login</button>
+        </form>
+    </div>
+    <div class="col-md-6">
+        <div>Daftar</div>
+        <form action="api/Users" method="post">
+            <div class="form-group required">
+                <label for="email_login">Nama Depan</label>
+                <input type="text" class="form-control" name="FirstMidName" placeholder="Nama Depan">
+            </div>
+            <div class="form-group">
+                <label for="email_login">Nama Belakang</label>
+                <input type="text" class="form-control" name="LastName" placeholder="Nama Belakang">
+            </div>
+            <div class="form-group required">
+                <label for="email_login">Alamat Email</label>
+                <input type="email" class="form-control" id="email_reg" name="EmailAddress" placeholder="Alamat Email">
+            </div>
+            <div class="form-group required">
+                <label for="exampleInputPassword1">Password</label>
+                <input type="password" class="form-control" id="password_reg" name="NewPassword" placeholder="Password">
+            </div>
+            <div class="form-group required">
+                <label for="exampleInputPassword1">Konfirmasi Password</label>
+                <input type="password" class="form-control" name="ConfirmPassword" placeholder="Password">
+            </div>
+            <div>
+                <ul class="error_message">
+                </ul>
+            </div>
+            <button id="btn_register" type="submit" data-form-type="api" class="submit-button btn btn-default">Daftar</button>
+        </form>
+    </div>
+</div>

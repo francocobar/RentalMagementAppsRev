@@ -1,0 +1,22 @@
+﻿@{
+    ViewData["Title"] = "Index";
+}
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">Tambah Kost Anda</h3>
+    </div>
+    <div id="content" class="panel-body">
+        <form action="/api/Kosts" method="post">
+            <div class="form-group required">
+                <label for="KostName">Nama Depan</label>
+                <input type="text" class="form-control" name="KostName" placeholder="Nama Kost">
+            </div>
+            <div>
+                <ul class="error_message"></ul>
+            </div>
+            <button id="btn_register" type="submit" data-form-type="api" class="submit-button btn btn-success">Tambahkan</button>
+            <a href="/Sewakost" class=" btn btn-default">Kembali</a>
+        </form>
+    </div>
+</div>
